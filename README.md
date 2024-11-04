@@ -4,26 +4,31 @@ Este notebook tenía como objetivo entrenar y evaluar un modelo de clasificació
 
 ## Resumen de las etapas clave que vimos:
 
-Carga y preprocesamiento de los datos:
+### Carga y preprocesamiento de los datos:
 
 Cargamos las imágenes del conjunto de datos de radiografías y las redimensionamos a un tamaño estándar de 150x150 píxeles. Las imágenes se dividieron en conjuntos de entrenamiento, validación y prueba.
 Etiquetamos las imágenes como Neumonía o Normal.
-Aumento de datos:
+
+### Aumento de datos:
 
 Aplicamos aumento de datos (data augmentation) para aumentar artificialmente el tamaño del conjunto de entrenamiento mediante transformaciones como rotaciones, desplazamientos y volteos horizontales. Esto ayudó a evitar el sobreajuste (overfitting) y permitió que el modelo generalizara mejor.
-Construcción del modelo:
+
+### Construcción del modelo:
 
 Definimos un modelo de red neuronal convolucional (CNN) usando Keras. Este modelo tenía varias capas convolucionales, de normalización por lotes, y capas de pooling para extraer características importantes de las imágenes.
 Utilizamos la activación ReLU en las capas ocultas y sigmoid en la capa de salida, ya que es un problema de clasificación binaria.
-Entrenamiento del modelo:
+
+### Entrenamiento del modelo:
 
 Entrenamos el modelo usando el conjunto de datos aumentado durante 12 épocas y usamos un callback (ReduceLROnPlateau) para reducir la tasa de aprendizaje si el rendimiento en validación dejaba de mejorar.
 Visualizamos las curvas de precisión y pérdida tanto para el conjunto de entrenamiento como para el conjunto de validación para detectar problemas como sobreajuste.
-Evaluación del modelo:
+
+### Evaluación del modelo:
 
 Evaluamos el rendimiento del modelo en el conjunto de prueba usando métricas como precisión, recall y F1-score mediante el reporte de clasificación (classification_report).
 Generamos una matriz de confusión para analizar las clasificaciones correctas e incorrectas del modelo, lo que nos permitió observar los aciertos y errores del modelo en cada clase.
-Visualización de resultados:
+
+### Visualización de resultados:
 
 Mostramos imágenes correctamente clasificadas y mal clasificadas, analizando los errores del modelo y observando qué patrones no logró captar correctamente.
 Este análisis es importante para identificar debilidades del modelo y posibles mejoras en el futuro.
