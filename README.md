@@ -43,3 +43,11 @@ El resultado es un modelo que puede ayudar en la detección de neumonía a parti
 
 Este notebook cubrió todos los aspectos principales del flujo de trabajo de machine learning para la detección de neumonía basada en imágenes, desde la preparación de los datos hasta la evaluación del modelo y la visualización de los resultados. El análisis de los errores de predicción también sugiere áreas donde el modelo puede ser mejorado, ya sea mediante ajustes en el preprocesamiento, mejoras en la arquitectura del modelo o entrenamientos más largos.
 
+## Comando `curl` para Predicciones
+
+Puedes usar el siguiente comando `curl` para enviar una solicitud POST a la API de predicción:
+
+```sh
+curl --location 'http://localhost:8000/predict' \
+--form 'file=@"/path/to/file"'
+```
