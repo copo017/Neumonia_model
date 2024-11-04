@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 api_url = os.getenv("API_URL", "http://localhost:3000")
-#api_url = os.getenv("API_URL")
+#api_url = "http://localhost:3000"
 
 app = FastAPI()
 
@@ -29,7 +29,7 @@ app.add_middleware(
 # app = FastAPI()
 
 # Cargar el modelo previamente entrenado
-model = load_model('F:/Users/Documents/Program Class/solo Ciencia de Datos/Neuroma_test/models/modelo_neumonia.keras')
+model = load_model('F:/Users/Documents/Program Class/solo Ciencia de Datos/neumonia_modelo/models/modelo_neumonia.keras')
 
 
 # class ImageData(BaseModel):

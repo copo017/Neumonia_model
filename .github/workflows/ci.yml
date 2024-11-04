@@ -37,10 +37,9 @@ jobs:
           node-version: "16"  # Usa la versión de Node.js que prefieras
 
       - name: Install frontend dependencies
-        working-directory: ./frontend/neumonia-frontend  # Cambia a la carpeta de tu proyecto React
         run: npm install
 
       - name: Build frontend
-        working-directory: ./frontend/neumonia-frontend/src
+        working-directory: ./src
         run: npm run build
 

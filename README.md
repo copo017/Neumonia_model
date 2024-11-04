@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Resumen del notebook y su propósito:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este notebook tenía como objetivo entrenar y evaluar un modelo de clasificación de imágenes de rayos X para determinar si un paciente tiene neumonía o está sano (normal). A lo largo del notebook, recorrimos diferentes etapas que incluían la preparación de los datos, la construcción del modelo de red neuronal convolucional (CNN), su entrenamiento, evaluación, y análisis de resultados.
 
-## Available Scripts
+## Resumen de las etapas clave que vimos:
 
-In the project directory, you can run:
+Carga y preprocesamiento de los datos:
 
-### `npm start`
+Cargamos las imágenes del conjunto de datos de radiografías y las redimensionamos a un tamaño estándar de 150x150 píxeles. Las imágenes se dividieron en conjuntos de entrenamiento, validación y prueba.
+Etiquetamos las imágenes como Neumonía o Normal.
+Aumento de datos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Aplicamos aumento de datos (data augmentation) para aumentar artificialmente el tamaño del conjunto de entrenamiento mediante transformaciones como rotaciones, desplazamientos y volteos horizontales. Esto ayudó a evitar el sobreajuste (overfitting) y permitió que el modelo generalizara mejor.
+Construcción del modelo:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Definimos un modelo de red neuronal convolucional (CNN) usando Keras. Este modelo tenía varias capas convolucionales, de normalización por lotes, y capas de pooling para extraer características importantes de las imágenes.
+Utilizamos la activación ReLU en las capas ocultas y sigmoid en la capa de salida, ya que es un problema de clasificación binaria.
+Entrenamiento del modelo:
 
-### `npm test`
+Entrenamos el modelo usando el conjunto de datos aumentado durante 12 épocas y usamos un callback (ReduceLROnPlateau) para reducir la tasa de aprendizaje si el rendimiento en validación dejaba de mejorar.
+Visualizamos las curvas de precisión y pérdida tanto para el conjunto de entrenamiento como para el conjunto de validación para detectar problemas como sobreajuste.
+Evaluación del modelo:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Evaluamos el rendimiento del modelo en el conjunto de prueba usando métricas como precisión, recall y F1-score mediante el reporte de clasificación (classification_report).
+Generamos una matriz de confusión para analizar las clasificaciones correctas e incorrectas del modelo, lo que nos permitió observar los aciertos y errores del modelo en cada clase.
+Visualización de resultados:
 
-### `npm run build`
+Mostramos imágenes correctamente clasificadas y mal clasificadas, analizando los errores del modelo y observando qué patrones no logró captar correctamente.
+Este análisis es importante para identificar debilidades del modelo y posibles mejoras en el futuro.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Propósito general:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+El propósito de este notebook fue desarrollar un sistema de detección automática de neumonía basado en imágenes de rayos X mediante técnicas de deep learning. El sistema clasifica las imágenes en dos clases: neumonía y normal. A través de este proceso, aprendimos a:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Preprocesar imágenes y realizar aumento de datos.
+Construir una red neuronal convolucional (CNN) para la clasificación de imágenes.
+Entrenar y ajustar un modelo de deep learning.
+Evaluar y analizar el rendimiento del modelo utilizando métricas y visualizaciones.
+Detectar áreas de mejora mediante la visualización de los errores de clasificación.
+El resultado es un modelo que puede ayudar en la detección de neumonía a partir de imágenes de rayos X, lo cual puede tener aplicaciones prácticas en el campo de la medicina, ayudando a los médicos a diagnosticar la neumonía más rápidamente.
 
-### `npm run eject`
+## Conclusión:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Este notebook cubrió todos los aspectos principales del flujo de trabajo de machine learning para la detección de neumonía basada en imágenes, desde la preparación de los datos hasta la evaluación del modelo y la visualización de los resultados. El análisis de los errores de predicción también sugiere áreas donde el modelo puede ser mejorado, ya sea mediante ajustes en el preprocesamiento, mejoras en la arquitectura del modelo o entrenamientos más largos.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
