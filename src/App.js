@@ -1,5 +1,6 @@
 import React from "react";
-import UploadImage from "F:/Users/Documents/Program Class/solo Ciencia de Datos/neumonia_modelo/src/UploadImage";
+import UploadImage from "src/UploadImage";
+{/*import UploadImage from "F:/Users/Documents/Program Class/solo Ciencia de Datos/neumonia_modelo/src/UploadImage";*/}
 
 function App() {
     return (
